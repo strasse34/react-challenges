@@ -1,9 +1,11 @@
-import css from './App.module.css';
+import css from "./App.module.css";
+
+import Nesting from "./components/Nesting";
 
 function App() {
   return (
     <div className={css.App}>
-      {/* Add your components here */}
+      <Nesting />
     </div>
   );
 }
