@@ -1,14 +1,12 @@
 import css from "./App.module.css";
-import BookName from "./components/BookName";
-import BooksInfo from "./components/BooksInfo";
+import Content from "./components/Content";
 
 
 
 function App() {
   return (
     <div className={css.App}>      
-        <BookName />
-        <BooksInfo />
+       <Content />
       
     </div>
   );
