@@ -1,14 +1,24 @@
-import React, { Component } from 'react';
-import importedNames from './Names';
+import React, { Component } from "react";
+import importedNames from "./EducationalMaterial";
 
 export class SearchBar extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      names: importedNames
+      names: importedNames,
     };
   }
+
+  handleChange = (event) => {
+    const inputName = event.target.value.toLowerCase();
+    const filteredNames = importedNames.filter((name) => {
+      return name.toLowerCase().includes(inputName);
+    });
+    this.setState({
+      names: filteredNames,
+    });
+  };
 
   render() {
     return (
@@ -17,14 +27,14 @@ export class SearchBar extends Component {
         <p>Matching Names Found: {this.state.names.length}</p>
         <form>
           <input
-            id='id-name'
-            name='name'
-            type='text'
-            placeholder='Search Name...'
+            id="id-name"
+            name="name"
+            type="text"
+            placeholder="Search Name..."
+            onChange={(event) => this.handleChange(event)}
           ></input>
         </form>
         <div>
-          <h2>We will render name here: </h2>
           <div>
             {this.state.names.map((name) => {
               return <p key={name}>{name}</p>;
